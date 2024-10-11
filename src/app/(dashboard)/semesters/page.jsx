@@ -42,7 +42,7 @@ export default function SemesterManagementPage() {
 
         <div className="actionsGroup">
           <BulkDelete />
-          <FormModal title="Semester" type="create" />
+          <FormModal title="Semester" type="create" table="semesters" />
         </div>
       </div>
 

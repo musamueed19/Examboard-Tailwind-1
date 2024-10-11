@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import FormModal from "./FormModal";
 
-export default function Table({ columns, actions , records }) {
+export default function Table({ columns, actions , records, table }) {
   let i = 1;
 
   const [isAllChecked, setIsAllChecked] = useState(false);
@@ -89,10 +89,19 @@ export default function Table({ columns, actions , records }) {
                       : "gap-[0.7rem] lg:gap-[3rem]"
                   } flex items-center justify-evenly`}
                 >
-                  {(actions.update || actions.all) && <FormModal type="update" />}
-                  {(actions.view || actions.all) && <FormModal type="view" />}
+                  {(actions.update || actions.all) && (
+                    <FormModal type="update" table={table} id={i} />
+                  )}
+                  {(actions.view || actions.all) && (
+                    <FormModal type="view" table={table} id={i} />
+                  )}
                   {(actions.delete || actions.all) && (
-                    <FormModal type="delete" />
+                      <FormModal
+                        type="delete"
+                        table={table}
+                        id={i}
+                        data={record}
+                      />
                   )}
                 </div>
               </td>

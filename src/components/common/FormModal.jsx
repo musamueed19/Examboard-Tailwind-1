@@ -3,6 +3,7 @@
 import Image from "next/image";
 import AddBtn from "./AddBtn";
 import { useState } from "react";
+import DeleteDialog from "./DeleteDialog";
 
 export default function FormModal({ table, type, data, id, title }) {
   const styles =
@@ -13,10 +14,11 @@ export default function FormModal({ table, type, data, id, title }) {
         : `hover:bg-[#ffc5c5] p-1 rounded-md`;
   
   const [open, setOpen] = useState(false);
+  let btnTitle = table.slice(0, -1);
 
   return (
     <>
-      {type !== "create" && (
+      {type !== "create" ? (
         <button
           className={`${styles} other common tailwind classes`}
           onClick={() => setOpen(true)}
@@ -28,19 +30,25 @@ export default function FormModal({ table, type, data, id, title }) {
             height={16}
           />
         </button>
+      ) : (
+        <AddBtn title={title} setOpen={setOpen} />
       )}
-      {type === "create" && <AddBtn title={title} setOpen={setOpen} />}
 
       {open && (
         <div className="absolute w-screen h-screen bg-black bg-opacity-60 left-0 top-0 flex items-center justify-center z-50">
-          <div className="bg-white rounded-md w-[50%] h-[90%] flex justify-center items-center relative">
-            Hello
+          <div className="bg-white rounded-md w-[40%] h-fit flex justify-center items-center relative">
             <button
               onClick={() => setOpen(false)}
               className="absolute scale-70 bg-red-600 top-3 px-2 right-3 rounded-sm text-white"
             >
               Close
             </button>
+
+            {table === "users" && type === "delete" && id ? (
+              <DeleteDialog title={btnTitle} object={data.name} />
+            ) : (
+              <p>Select a valid user</p>
+            )}
           </div>
         </div>
       )}
