@@ -1,16 +1,10 @@
-"use client";
-import { useState } from "react";
 import DeleteDialog from "../common/DeleteDialog";
 import TitleHeader from "../common/TitleHeader";
 
 export default function UserForm({ type, data }) {
   // console.log(data, data.name, data.email);
-  const [selectedRole, setSelectedRole] = useState(data.role);
-  const handleChange = (event) => {
-    setSelectedRole(event.target.value);
-  };
   return (
-    <div className="w-full px-10">
+    <div className="w-full px-16">
       {type === "update" ? (
         <div className="flex flex-col gap-8 w-full py-6">
           <TitleHeader fontSize="xl" title="Edit Semester" />
@@ -19,7 +13,7 @@ export default function UserForm({ type, data }) {
               <div className="flex flex-col">
                 <label htmlFor="name">Name *</label>
                 <input
-                  className="border-2"
+                  className="border-2 px-1"
                   type="text"
                   name="name"
                   id="name"
@@ -29,28 +23,24 @@ export default function UserForm({ type, data }) {
               </div>
               <div className="flex flex-col">
                 <label htmlFor="role">Role *</label>
-                <select
-                  value={selectedRole}
-                  onChange={handleChange}
-                  className="border-2"
-                >
+                <select value={data.role} className="border-2">
                   <option value="Associate Professor">
                     Associate Professor
                   </option>
                   <option value="Assistant Professor">
                     Assistant Professor
                   </option>
+                  <option value="Teacher/Instructor">Tutor/Instructor</option>
                   <option value="HoD">HoD</option>
-                  <option value="Teacher/Instructor">Teacher/Instructor</option>
                   <option value="Admin">Admin</option>
                   <option value="Faculty Member">Faculty Member</option>
                 </select>
               </div>
               <div className="flex flex-col">
                 <label htmlFor="role">Status *</label>
-                <select name="" id="" className=" border-2">
-                  <option value="">Active</option>
-                  <option value="">Inactive</option>
+                <select name="" id="" className=" border-2" value={data.status}>
+                  <option value="Active">Active</option>
+                  <option value="Inactive">Inactive</option>
                 </select>
               </div>
             </div>
@@ -58,7 +48,7 @@ export default function UserForm({ type, data }) {
               <div className="flex flex-col">
                 <label htmlFor="email">Email *</label>
                 <input
-                  className="border-2"
+                  className="border-2 px-1"
                   type="email"
                   name="email"
                   id="email"
@@ -68,11 +58,20 @@ export default function UserForm({ type, data }) {
               </div>
               <div className="flex flex-col">
                 <label htmlFor="role">Designation *</label>
-                <select name="" id="" className=" border-2">
-                  <option value="">Lahore</option>
-                  <option value="">Karachi I</option>
-                  <option value="">Karachi II</option>
-                  <option value="">Islamabad</option>
+                <select
+                  name=""
+                  id=""
+                  className=" border-2"
+                  value={data.designation}
+                >
+                  <option value="Associate Professor">
+                    Associate Professor
+                  </option>
+                  <option value="Assistant Professor">
+                    Assistant Professor
+                  </option>
+                  <option value="Teacher/Instructor">Tutor/Instructor</option>
+                  <option value="Lecturer">Lecturer</option>
                 </select>
               </div>
             </div>
