@@ -6,9 +6,9 @@
 To clone the repository, run the following commands in your terminal:
 
 ```bash
-git clone --branch dev --single-branch https://gitlab.com/wajishah786/exams-board-fe.git
+git clone https://github.com/musamueed19/Examboard-Tailwind-1.git
 git branch -m master main
-cd exams-board-fe/
+cd Examboard-Tailwind-1/
 code .
 ```
 ## Making Edits
