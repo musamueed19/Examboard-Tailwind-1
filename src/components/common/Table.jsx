@@ -5,7 +5,7 @@ import { useState } from "react";
 import FormModal from "./FormModal";
 
 export default function Table({ columns, actions , records, table }) {
-  let i = 1;
+  let i = 0;
 
   const [isAllChecked, setIsAllChecked] = useState(false);
   const [checkedRecords, setCheckedRecords] = useState(
@@ -90,18 +90,23 @@ export default function Table({ columns, actions , records, table }) {
                   } flex items-center justify-evenly`}
                 >
                   {(actions.update || actions.all) && (
-                    <FormModal type="update" table={table} id={i} />
+                    <FormModal
+                      type="update"
+                      table={table}
+                      id={i}
+                      data={record}
+                    />
                   )}
                   {(actions.view || actions.all) && (
-                    <FormModal type="view" table={table} id={i} />
+                    <FormModal type="view" table={table} id={i} data={record} />
                   )}
                   {(actions.delete || actions.all) && (
-                      <FormModal
-                        type="delete"
-                        table={table}
-                        id={i}
-                        data={record}
-                      />
+                    <FormModal
+                      type="delete"
+                      table={table}
+                      id={i}
+                      data={record}
+                    />
                   )}
                 </div>
               </td>

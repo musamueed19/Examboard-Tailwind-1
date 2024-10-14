@@ -46,7 +46,7 @@ export default function SemesterManagementPage() {
         </div>
       </div>
 
-      <Table columns={columns} records={records} actions={actions} />
+      <Table columns={columns} records={records} actions={actions} table="semesters" />
       <Pagination />
     </div>
   );

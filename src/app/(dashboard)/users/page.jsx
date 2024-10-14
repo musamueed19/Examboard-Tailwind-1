@@ -105,7 +105,7 @@ export default function UserManagementPage() {
 
         <div className="actionsGroup">
           <BulkDelete />
-          <FormModal title="ADD User" type="create" table="users" />
+          <AddBtn title="ADD User"/>
         </div>
       </div>
 
