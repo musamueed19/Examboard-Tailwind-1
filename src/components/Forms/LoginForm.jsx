@@ -3,14 +3,15 @@ import InputFields from '../common/InputFields'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation';
 import AccountStateHandler from '../Dashboard/AccountStateHandler';
+import { isLoggedIn, stateHandler } from '@/app/page';
 
-export default function LoginForm() {
+export default function LoginForm({ onStateChange }) {
+  console.log(typeof onStateChange);
   const router = useRouter(); // Initialize the router
 
   function formSubmitter(event) {
     event.preventDefault();
-    <AccountStateHandler isLoggedIn={true} />;
-    router.push('/')
+   onStateChange(true)
   }
   return (
     <form onSubmit={formSubmitter} className="flex flex-col gap-4 w-full px-5">
@@ -19,6 +20,7 @@ export default function LoginForm() {
         name="email"
         input="email"
         placeholder="Enter your email"
+        // required
       />
       <div className="flex flex-col gap-1">
         <InputFields
@@ -26,6 +28,7 @@ export default function LoginForm() {
           name="password"
           input="password"
           placeholder="Enter your password"
+          // required
         />
         <div className="flex justify-end">
           <Link
