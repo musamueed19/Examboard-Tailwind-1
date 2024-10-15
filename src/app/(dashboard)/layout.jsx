@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function DashboardLayout({ children }) {
+export default function DashboardLayout({ children, setIsLogged }) {
   const [isHide, setIsHide] = useState(false);
 
   function hideTitleHandler() {
@@ -15,7 +15,7 @@ export default function DashboardLayout({ children }) {
   }
 
   return (
-    <div className="flex w-screen h-screen gap-2">
+    <div className="flex w-full h-full gap-2">
       {/* LEFT */}
       {/* p-[0.5rem] sm:p-[0.7rem] md:p-4 lg:p-3 */}
       <div
@@ -47,7 +47,7 @@ export default function DashboardLayout({ children }) {
           isHide ? "w-[95%]" : "w-[85%] md:w-[90%] lg:w-[84%] xl:w-[84%]"
         } flex flex-col gap-2 bg-white rounded-s-2xl`}
       >
-        <Navbar hideMenu={hideTitleHandler} />
+        <Navbar hideMenu={hideTitleHandler} setIsLogged={setIsLogged} />
 
         {children}
       </div>

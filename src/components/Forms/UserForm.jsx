@@ -1,16 +1,126 @@
+import Btns from "../common/Btns";
 import DeleteDialog from "../common/DeleteDialog";
+import InputFields from "../common/InputFields";
 import TitleHeader from "../common/TitleHeader";
 
+const statusOptions = [
+  { value: "Active", name: "Active" },
+  { value: "Inactive", name: "Inactive" }
+]
+const designationOptions = [
+  {
+    value: "Associate Professor",
+    name: "Associate Professor",
+  },
+  {
+    value: "Assistant Professor",
+    name: "Assistant Professor",
+  },
+  {
+    value: "Tutor/Instructor",
+    name: "Tutor/Instructor",
+  },
+  {
+    value: "Lecturer",
+    name: "Lecturer",
+  },
+];
+const roleOptions = [
+  {
+    value: "Associate Professor",
+    name: "Associate Professor",
+  },
+  {
+    value: "Assistant Professor",
+    name: "Assistant Professor",
+  },
+  {
+    value: "Teacher/Instructor",
+    name: "Tutor/Instructor",
+  },
+  {
+    value: "HoD",
+    name: "HoD",
+  },
+  {
+    value: "Admin",
+    name: "Admin",
+  },
+  {
+    value: "Faculty Member",
+    name: "Faculty Member",
+  },
+];
 export default function UserForm({ type, data }) {
   // console.log(data, data.name, data.email);
   return (
-    <div className="w-full px-16">
+    <div className="w-full px-8 lg:px-16">
       {type === "update" ? (
         <div className="flex flex-col gap-8 w-full py-6">
-          <TitleHeader fontSize="xl" title="Edit Semester" />
-          <div className="flex gap-12 justify-center w-full">
-            <div className="w-1/2 flex flex-col gap-4">
-              <div className="flex flex-col">
+          <TitleHeader fontSize="xl" title="Edit User" />
+          <div className="flex flex-col lg:flex-row lg:gap-12 justify-center w-full">
+            <div className="w-full lg:w-1/2 flex flex-col gap-4">
+              <InputFields
+                label="Name"
+                required={true}
+                input="text"
+                name="name"
+                placeholder="Enter your name"
+                value={data.name}
+              />
+              <InputFields
+                label="Role"
+                required={true}
+                input="dropdown"
+                name="role"
+                value={data.role}
+                options={roleOptions}
+              />
+              <InputFields
+                label="Status"
+                required={true}
+                input="dropdown"
+                name="status"
+                value={data.status}
+                options={statusOptions}
+              />
+            </div>
+            <div className="w-full lg:w-1/2 flex flex-col gap-4">
+              <InputFields
+                label="Email"
+                required={true}
+                input="email"
+                name="email"
+                placeholder="Enter your email"
+                value={data.email}
+              />
+              <InputFields
+                label="Designation"
+                required={true}
+                input="dropdown"
+                name="designation"
+                value={data.designation}
+                options={designationOptions}
+              />
+            </div>
+          </div>
+          <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-10 justify-center">
+            <Btns type="primary" title="Cancel" />
+            <Btns type="secondary" title="Update" />
+          </div>
+        </div>
+      ) : type === "view" ? (
+        <TitleHeader fontSize="xl" title="View User" />
+      ) : (
+        type === "delete" && <DeleteDialog title="User" object={data.name} />
+      )}
+    </div>
+  );
+}
+
+
+ {
+   /* <div className="flex flex-col">
                 <label htmlFor="name">Name *</label>
                 <input
                   className="border-2 px-1"
@@ -20,72 +130,5 @@ export default function UserForm({ type, data }) {
                   placeholder="enter your name"
                   value={data.name}
                 />
-              </div>
-              <div className="flex flex-col">
-                <label htmlFor="role">Role *</label>
-                <select value={data.role} className="border-2">
-                  <option value="Associate Professor">
-                    Associate Professor
-                  </option>
-                  <option value="Assistant Professor">
-                    Assistant Professor
-                  </option>
-                  <option value="Teacher/Instructor">Tutor/Instructor</option>
-                  <option value="HoD">HoD</option>
-                  <option value="Admin">Admin</option>
-                  <option value="Faculty Member">Faculty Member</option>
-                </select>
-              </div>
-              <div className="flex flex-col">
-                <label htmlFor="role">Status *</label>
-                <select name="" id="" className=" border-2" value={data.status}>
-                  <option value="Active">Active</option>
-                  <option value="Inactive">Inactive</option>
-                </select>
-              </div>
-            </div>
-            <div className="w-1/2 flex flex-col gap-4">
-              <div className="flex flex-col">
-                <label htmlFor="email">Email *</label>
-                <input
-                  className="border-2 px-1"
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="enter your email"
-                  value={data.email}
-                />
-              </div>
-              <div className="flex flex-col">
-                <label htmlFor="role">Designation *</label>
-                <select
-                  name=""
-                  id=""
-                  className=" border-2"
-                  value={data.designation}
-                >
-                  <option value="Associate Professor">
-                    Associate Professor
-                  </option>
-                  <option value="Assistant Professor">
-                    Assistant Professor
-                  </option>
-                  <option value="Teacher/Instructor">Tutor/Instructor</option>
-                  <option value="Lecturer">Lecturer</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div className="flex items-center gap-8 justify-center">
-            <button className="border-2 bg-slate-200 px-1">Cancel</button>
-            <button className="border-2 bg-slate-200 px-1">Update</button>
-          </div>
-        </div>
-      ) : type === "view" ? (
-        <TitleHeader fontSize="xl" title="View Semester" />
-      ) : (
-        type === "delete" && <DeleteDialog title="User" object={data.name} />
-      )}
-    </div>
-  );
-}
+              </div> */
+ }

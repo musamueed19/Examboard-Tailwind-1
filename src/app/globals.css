@@ -7,6 +7,8 @@ body {
   /* color: var(--foreground);
   background: var(--background); */
   font-family: "Roboto", sans-serif;
+  height: 100vh;
+  width: 100vw;
 }
 
 * {
@@ -17,7 +19,7 @@ body {
 
 @layer utilities {
   .container {
-    @apply rounded-xl bg-gray-300/15 pt-2 lg:pt-4;
+    @apply h-full w-full rounded-xl bg-gray-300/15 pt-2 lg:pt-4;
   }
   .tableTopNav {
     @apply flex flex-col md:flex-row justify-center md:items-center md:justify-between mt-2 lg:mt-10 mb-1 lg:mb-4 w-[100%] lg:w-[96%] mx-auto;

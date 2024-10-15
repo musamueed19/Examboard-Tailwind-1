@@ -46,8 +46,8 @@ export default function FormModal({ table, type, data, id, title }) {
       )}
 
       {open && (
-        <div className="absolute w-screen h-screen bg-black bg-opacity-60 left-0 top-0 flex items-center justify-center z-50">
-          <div className="bg-white rounded-md w-[40%] h-fit flex justify-center items-center relative">
+        <div className="absolute w-full h-full bg-black bg-opacity-60 left-0 top-0 flex items-center justify-center z-50">
+          <div className="bg-white rounded-md w-[40%] h-fit flex justify-center items-center relative z-60">
             <button
               onClick={() => setOpen(!open)}
               className="absolute scale-70 bg-red-600 top-3 px-2 right-3 rounded-sm text-white"
@@ -57,9 +57,6 @@ export default function FormModal({ table, type, data, id, title }) {
 
             {forms[table](type, data)}
 
-            {/* {type === "delete" && id && (
-              <DeleteDialog title={btnTitle} object={data.semester} />
-            )} */}
           </div>
         </div>
       )}
