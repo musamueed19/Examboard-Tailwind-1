@@ -105,11 +105,16 @@ export default function UserManagementPage() {
 
         <div className="actionsGroup">
           <BulkDelete />
-          <AddBtn title="ADD User"/>
+          <FormModal title="ADD User" type="create" table="users" />
         </div>
       </div>
 
-      <Table columns={columns} records={records} actions={actions} table="users" />
+      <Table
+        columns={columns}
+        records={records}
+        actions={actions}
+        table="users"
+      />
 
       <Pagination />
     </div>

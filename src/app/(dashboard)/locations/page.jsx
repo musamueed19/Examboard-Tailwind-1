@@ -1,5 +1,6 @@
 import AddBtn from "@/components/common/AddBtn";
 import BulkDelete from "@/components/common/BulkDelete";
+import FormModal from "@/components/common/FormModal";
 import Pagination from "@/components/common/Pagination";
 import Searchbar from "@/components/common/Searchbar";
 import Table from "@/components/common/Table";
@@ -38,11 +39,16 @@ export default function LocationManagementPage() {
 
         <div className="actionsGroup">
           <BulkDelete />
-          <AddBtn title="Location" />
+          <FormModal title="Location" type="create" table="locations" />
         </div>
       </div>
 
-      <Table columns={columns} records={records} actions={actions} />
+      <Table
+        columns={columns}
+        records={records}
+        actions={actions}
+        table="locations"
+      />
       <Pagination />
     </div>
   );

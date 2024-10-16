@@ -5,13 +5,12 @@ import { useRouter } from 'next/navigation';
 import AccountStateHandler from '../Dashboard/AccountStateHandler';
 import { isLoggedIn, stateHandler } from '@/app/page';
 
-export default function LoginForm({ onStateChange }) {
-  console.log(typeof onStateChange);
+export default function LoginForm() {
   const router = useRouter(); // Initialize the router
 
   function formSubmitter(event) {
     event.preventDefault();
-   onStateChange(true)
+    process.env.ISLOGGIN = true;
   }
   return (
     <form onSubmit={formSubmitter} className="flex flex-col gap-4 w-full px-5">
@@ -39,12 +38,12 @@ export default function LoginForm({ onStateChange }) {
           </Link>
         </div>
       </div>
-      <button
-        type="submit"
-        className="bg-[#226FFE] text-white font-bold rounded-sm py-1 mt-6"
+      <Link
+        href='/'
+        className="bg-[#226FFE] text-white font-bold rounded-sm py-1 mt-6 text-center"
       >
         Sign in
-      </button>
+      </Link>
     </form>
   );
 }

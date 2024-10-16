@@ -61,6 +61,7 @@ export default function UserForm({ type, data }) {
           <div className="flex flex-col lg:flex-row lg:gap-12 justify-center w-full">
             <div className="w-full lg:w-1/2 flex flex-col gap-4">
               <InputFields
+              type={type}
                 label="Name"
                 required={true}
                 input="text"
@@ -69,6 +70,7 @@ export default function UserForm({ type, data }) {
                 value={data.name}
               />
               <InputFields
+              type={type}
                 label="Role"
                 required={true}
                 input="dropdown"
@@ -77,6 +79,7 @@ export default function UserForm({ type, data }) {
                 options={roleOptions}
               />
               <InputFields
+              type={type}
                 label="Status"
                 required={true}
                 input="dropdown"
@@ -87,6 +90,7 @@ export default function UserForm({ type, data }) {
             </div>
             <div className="w-full lg:w-1/2 flex flex-col gap-4">
               <InputFields
+              type={type}
                 label="Email"
                 required={true}
                 input="email"
@@ -95,6 +99,7 @@ export default function UserForm({ type, data }) {
                 value={data.email}
               />
               <InputFields
+              type={type}
                 label="Designation"
                 required={true}
                 input="dropdown"
@@ -110,7 +115,117 @@ export default function UserForm({ type, data }) {
           </div>
         </div>
       ) : type === "view" ? (
-        <TitleHeader fontSize="xl" title="View User" />
+        <div className="flex flex-col gap-8 w-full py-6">
+          <TitleHeader fontSize="xl" title="View User" />
+          <div className="flex flex-col lg:flex-row lg:gap-12 justify-center w-full">
+            <div className="w-full lg:w-1/2 flex flex-col gap-4">
+              <InputFields
+              type={type}
+                label="Name"
+                required={true}
+                input="text"
+                name="name"
+                placeholder="Enter your name"
+                value={data.name}
+              />
+              <InputFields
+              type={type}
+                label="Role"
+                required={true}
+                input="dropdown"
+                name="role"
+                value={data.role}
+                options={roleOptions}
+              />
+              <InputFields
+              type={type}
+                label="Status"
+                required={true}
+                input="dropdown"
+                name="status"
+                value={data.status}
+                options={statusOptions}
+              />
+            </div>
+            <div className="w-full lg:w-1/2 flex flex-col gap-4">
+              <InputFields
+              type={type}
+                label="Email"
+                required={true}
+                input="email"
+                name="email"
+                placeholder="Enter your email"
+                value={data.email}
+              />
+              <InputFields
+              type={type}
+                label="Designation"
+                required={true}
+                input="dropdown"
+                name="designation"
+                value={data.designation}
+                options={designationOptions}
+              />
+            </div>
+          </div>
+          <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-10 justify-center">
+            <Btns type="primary" title="Close" />
+          </div>
+        </div>
+      ) : type === "create" ? (
+        <div className="flex flex-col gap-8 w-full py-6">
+          <TitleHeader fontSize="xl" title="Add User" />
+          <div className="flex flex-col lg:flex-row lg:gap-12 justify-center w-full">
+            <div className="w-full lg:w-1/2 flex flex-col gap-4">
+              <InputFields
+              type={type}
+                label="Name"
+                required={true}
+                input="text"
+                name="name"
+                placeholder="Enter your name"
+              />
+              <InputFields
+              type={type}
+                label="Role"
+                required={true}
+                input="dropdown"
+                name="role"
+                options={roleOptions}
+              />
+              <InputFields
+              type={type}
+                label="Status"
+                required={true}
+                input="dropdown"
+                name="status"
+                options={statusOptions}
+              />
+            </div>
+            <div className="w-full lg:w-1/2 flex flex-col gap-4">
+              <InputFields
+              type={type}
+                label="Email"
+                required={true}
+                input="email"
+                name="email"
+                placeholder="Enter your email"
+              />
+              <InputFields
+              type={type}
+                label="Designation"
+                required={true}
+                input="dropdown"
+                name="designation"
+                options={designationOptions}
+              />
+            </div>
+          </div>
+          <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-10 justify-center">
+            <Btns type="primary" title="Cancel" />
+            <Btns type="secondary" title="Save" />
+          </div>
+        </div>
       ) : (
         type === "delete" && <DeleteDialog title="User" object={data.name} />
       )}

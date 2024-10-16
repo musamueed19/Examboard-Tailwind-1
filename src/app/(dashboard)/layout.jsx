@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function DashboardLayout({ children, setIsLogged }) {
+export default function DashboardLayout({ children }) {
   const [isHide, setIsHide] = useState(false);
 
   function hideTitleHandler() {
@@ -47,7 +47,7 @@ export default function DashboardLayout({ children, setIsLogged }) {
           isHide ? "w-[95%]" : "w-[85%] md:w-[90%] lg:w-[84%] xl:w-[84%]"
         } flex flex-col gap-2 bg-white rounded-s-2xl`}
       >
-        <Navbar hideMenu={hideTitleHandler} setIsLogged={setIsLogged} />
+        <Navbar hideMenu={hideTitleHandler} />
 
         {children}
       </div>

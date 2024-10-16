@@ -17,6 +17,10 @@ export default function FormModal({ table, type, data, id, title }) {
   const forms = {
     semesters: (type, data) => <SemesterForm type={type} data={data} />,
     users: (type, data) => <UserForm type={type} data={data} />,
+    locations: (type, data) => <UserForm type={type} data={data} />,
+    designtions: (type, data) => <UserForm type={type} data={data} />,
+    faculties: (type, data) => <UserForm type={type} data={data} />,
+    courses: (type, data) => <UserForm type={type} data={data} />,
   };
 
   const [open, setOpen] = useState(false);
@@ -42,7 +46,7 @@ export default function FormModal({ table, type, data, id, title }) {
           />
         </button>
       ) : (
-        <AddBtn title={title} setOpen={setOpen} />
+        <AddBtn title={title} onClick={modalHandler} />
       )}
 
       {open && (

@@ -1,8 +1,16 @@
+'use client'
+
 import InputFields from "../common/InputFields";
+import { useRouter } from "next/navigation";
 
 export default function ChangePasswordForm() {
+  const router = useRouter();
+  function formSubmitter(event) {
+    event.preventDefault();
+    router.push('/auth/login')
+  }
   return (
-    <form className="flex flex-col gap-5 w-full px-6">
+    <form onSubmit={formSubmitter} className="flex flex-col gap-5 w-full px-6">
       <InputFields
         label="Current Password"
         name="currentPassword"

@@ -4,6 +4,7 @@
 // import Searchbar from "@/components/common/Searchbar";
 import AddBtn from "@/components/common/AddBtn";
 import BulkDelete from "@/components/common/BulkDelete";
+import FormModal from "@/components/common/FormModal";
 import Pagination from "@/components/common/Pagination";
 import Searchbar from "@/components/common/Searchbar";
 import Table from "@/components/common/Table";
@@ -80,11 +81,11 @@ export default function CoursesManagementPage() {
 
         <div className="actionsGroup">
           <BulkDelete />
-          <AddBtn title="Course" />
+          <FormModal title="Course" type="create" table="courses" />
         </div>
       </div>
 
-      <Table columns={columns} actions={actions} records={records} />
+      <Table columns={columns} actions={actions} records={records} table="courses" />
 
       <Pagination />
     </div>

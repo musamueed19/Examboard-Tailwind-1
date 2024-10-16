@@ -1,5 +1,6 @@
 import AddBtn from "@/components/common/AddBtn";
 import BulkDelete from "@/components/common/BulkDelete";
+import FormModal from "@/components/common/FormModal";
 import Pagination from "@/components/common/Pagination";
 import Searchbar from "@/components/common/Searchbar";
 import Table from "@/components/common/Table";
@@ -33,11 +34,11 @@ export default function DesignationManagementPage() {
 
         <div className="actionsGroup">
           <BulkDelete />
-          <AddBtn title="Designation" />
+          <FormModal title="Designation" type="create" table="designations" />
         </div>
       </div>
 
-      <Table columns={columns} records={records} actions={actions} />
+      <Table columns={columns} records={records} actions={actions} table="designations" />
       <Pagination />
     </div>
   );

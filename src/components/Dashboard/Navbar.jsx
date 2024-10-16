@@ -26,7 +26,7 @@ export default function Navbar({ hideMenu, setIsLogged }) {
             className="filter contrast-0 brightness-0 hover:contrast-100 hover:brightness-100"
           />
         </button>
-        <ProfileDropdown setIsLogged={setIsLogged} />
+        <ProfileDropdown />
       </div>
     </div>
   );

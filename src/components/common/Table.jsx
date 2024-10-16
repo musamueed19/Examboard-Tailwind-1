@@ -28,7 +28,7 @@ export default function Table({ columns, actions , records, table }) {
   };
 
   return (
-    <table className="w-[94%] mx-auto overflow-hidden shadow-sm mt-2 rounded-md">
+    <table className="w-[90%] mx-auto overflow-hidden shadow-sm mt-2 rounded-md">
       <thead>
         <tr className="bg-slate-300">
           {/* hidden md:inline-flex w-full h-full border-y-2 */}
